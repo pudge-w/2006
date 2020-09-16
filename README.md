@@ -66,4 +66,36 @@
         连字符：header-left
         大驼峰：HeaderLeft
     ```
+  - 局部创建组件
+    ```
+      const 组件名 = {
+        template: '模板'
+      }
+
+      注册
+      components: {
+        组件名
+      }
+    ```
+
+#### MVC和MVVM的区别（面试）
+  http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html
+  - MVC和MVVM都是软件的架构思想, 从后端发展过来的
+    - MVC
+      视图（View）：用户界面。
+      控制器（Controller）：业务逻辑
+      模型（Model）：数据保存
+
+      通信是单项的  view -> controller -> model -> view
+    - MVVM
+      模型（Model）
+      视图（View）
+      视图模型（ViewModel）
+      
+      通信  view <-> ViewModel -><- model
+
+
+#### 
+
+      
     
