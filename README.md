@@ -56,6 +56,7 @@
 
 #### 指令
   - v-if
+  - v-show
   - v-for
   - v-on      ->   @
   - v-bind    ->   :
@@ -63,6 +64,8 @@
   - v-once
   - v-html  innerHTML
   - v-text 
+  - v-else
+  - v-else-if
 
 #### 选项
   - el
@@ -151,4 +154,23 @@
   - 一般来说都是计算属性更方便
   - 如果执行异步或者开销很大的时候，使用侦听器
 
+
+#### class绑定
+  1. 可以使用对象
+    - v-bind:class="{ 类名: 变量或者表达式 }"
+    - 整一个对象可以放在data或者computed里面
+  2. 可以使用数组
+    - v-bind:class="[isActive ? activeClass : '', errorClass]"
+
+#### style绑定
+  1. 可以使用对象
+    - v-bind:style="{ css的属性: 变量 + 单位 }"
+    css的属性如果有连字符，加引号，或者小驼峰
+  2. 可以使用数组
+    - 数组里面是多个对象
+
+#### v-if和v-show的区别
+  - v-if是控制元素的渲染或者不渲染，具有更低的初始开销
+  - v-show是控制元素的display的显示和不显示， 具有更低的切换开销
+  - 如果频繁切换的，用v-show更好，如果一开始隐藏的，用v-if更好
     
