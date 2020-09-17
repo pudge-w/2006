@@ -173,4 +173,48 @@
   - v-if是控制元素的渲染或者不渲染，具有更低的初始开销
   - v-show是控制元素的display的显示和不显示， 具有更低的切换开销
   - 如果频繁切换的，用v-show更好，如果一开始隐藏的，用v-if更好
+
+#### v-for
+  - v-for还可以去循环对象
+  - 循环对象有三个参数v-for="(value, name, index) in obj"
+
+#### 数组更新检测
+  - 可以直接使用(改变原数组)
+    - push
+    - pop
+    - splice
+    - shift
+    - unshift
+    - reverse
+    - sort
+    - ...
+  - 不能直接使用
+    - cancat
+    - slice
+    - map
+    - reduce
+    - ...
+
+#### 事件修饰符
+  ```
+    <!-- 阻止单击事件继续传播 -->
+    <a v-on:click.stop="doThis"></a>
+
+    <!-- 提交事件不再重载页面 -->
+    <form v-on:submit.prevent="onSubmit"></form>
+
+    <!-- 修饰符可以串联 -->
+    <a v-on:click.stop.prevent="doThat"></a>
+
+    <!-- 只有修饰符 -->
+    <form v-on:submit.prevent></form>
+
+    <!-- 添加事件监听器时使用事件捕获模式 -->
+    <!-- 即内部元素触发的事件先在此处理，然后才交由内部元素进行处理 -->
+    <div v-on:click.capture="doThis">...</div>
+
+    <!-- 只当在 event.target 是当前元素自身时触发处理函数 -->
+    <!-- 即事件不是从内部元素触发的 -->
+    <div v-on:click.self="doThat">...</div>
+  ```
     
