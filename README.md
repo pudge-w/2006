@@ -54,6 +54,26 @@
   - 性能
   - 。。。
 
+#### 指令
+  - v-if
+  - v-for
+  - v-on      ->   @
+  - v-bind    ->   :
+  - v-model
+  - v-once
+  - v-html  innerHTML
+  - v-text 
+
+#### 选项
+  - el
+  - data
+  - methods
+  - computed
+  - components
+  - template
+  - props
+
+
 
 #### 组件
   - 全局注册组件
@@ -95,7 +115,15 @@
       通信  view <-> ViewModel -><- model
 
 
-#### 
+#### 生命周期
+  - beforeCreate
+  - created
+  - beforeMount
+  - mounted
+  - beforeUpdate
+  - updated
+  - beforeDestroy
+  - destroyed
 
       
     
