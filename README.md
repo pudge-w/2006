@@ -121,12 +121,19 @@
 
 
 #### 生命周期
+    - 初始化事件和生命周期
   - beforeCreate
+    - 初始化数据
   - created
+    - 检测el和template
   - beforeMount
+    - 挂载，将虚拟DOM变成真实DOM
   - mounted
+    - 数据有更新的时候触发
   - beforeUpdate
+    - 重新渲染
   - updated
+    - 组件销毁时触发
   - beforeDestroy
   - destroyed
 
@@ -217,4 +224,31 @@
     <!-- 即事件不是从内部元素触发的 -->
     <div v-on:click.self="doThat">...</div>
   ```
+
+
+#### v-model
+  是v-on和v-bind的语法糖
+  ```
+    <input type="text" :value="msg" @input="handerInput">
+    data() {
+      return {
+        msg: 'haha'
+      }
+    },
+    methods: {
+      handerInput(e) {
+        this.msg = e.target.value
+      }
+    }
+  ```
+
+#### 组件之间的传参
+  1. 父子组件传参
+    - 父传子
+      在父组件自定义属性<child :msg="msg"></child>
+      在子组件里面用props接受  props: ['msg']
+
+    - 子传父
+      在父组件自定义事件<child @msg1="msg2"></child>
+      在子组件里面使用$emit触发  this.$emit('msg1', 传递参数)
     
