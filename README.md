@@ -58,14 +58,15 @@
   - v-if
   - v-show
   - v-for
-  - v-on      ->   @
-  - v-bind    ->   :
+  - v-on:      ->   @
+  - v-bind:    ->   :
   - v-model
   - v-once
   - v-html  innerHTML
   - v-text 
   - v-else
   - v-else-if
+  - v-slot:    ->   #
 
 #### 选项
   - el
@@ -136,6 +137,9 @@
     - 组件销毁时触发
   - beforeDestroy
   - destroyed
+
+  - activated  当缓存组件被激活时调用
+  - deactivated  当缓存组件被停用时调用
 
 
 #### 计算属性computed
@@ -256,8 +260,16 @@
 #### 插槽
   - 用于内容分发
   - 可以分发文本/标签/组件
+  - 使用<slot> 元素作为承载分发内容的出口。
+  - 具名插槽的使用
+    - 子组件里面 <slot name="插槽名"></slot>
+    - 父组件里面 <template v-slot:插槽名></template>
+    - 如果没有加v-slot,都会放入默认插槽里面
 
 
 #### 动态组件
   - 可以通过 Vue 的 <component> 元素加一个特殊的 is attribute 来实现
+
+#### <keep-alive>
+  - 用于缓存组件的，缓存的组件就不会进行销毁和重新挂载
     
