@@ -270,6 +270,6 @@
 #### 动态组件
   - 可以通过 Vue 的 <component> 元素加一个特殊的 is attribute 来实现
 
-#### <keep-alive>
+#### keep-alive
   - 用于缓存组件的，缓存的组件就不会进行销毁和重新挂载
     
