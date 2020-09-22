@@ -1,18 +1,25 @@
 <template>
   <div id="app">
     <my-header />
-    猫眼项目
+    <Tabs />
   </div>
 </template>
 
 <script>
 import MyHeader from "./components/index/Header";
+// @表示src文件夹
+import Tabs from "@/components/index/Tabs";
 
 export default {
   components: {
-    MyHeader
+    MyHeader,
+    Tabs
   }
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+#app {
+  padding-top: 50px;
+}
+</style>
