@@ -15,6 +15,9 @@
 </template>
 
 <script>
+// import http from '../../utils/http'
+import { getTopRated } from '../../utils/api'
+
 export default {
   data() {
     return {
@@ -26,16 +29,24 @@ export default {
     this.getTopRatedList();
   },
   methods: {
-    getTopRatedList() {
+    async getTopRatedList() {
       // 使用了fetch去请求数据
-      fetch('http://www.pudge.wang:3002/api/home/topRatedMovies')
-        .then(response => response.json())
-        .then(myJson => {
-          if (myJson.status === 0) {
-            // console.log(myJson);
-            this.topRatedList = myJson.result;
-          }
-        });
+      // fetch('http://www.pudge.wang:3002/api/home/topRatedMovies')
+      //   .then(response => response.json())
+      //   .then(myJson => {
+      //     if (myJson.status === 0) {
+      //       // console.log(myJson);
+      //       this.topRatedList = myJson.result;
+      //     }
+      //   });
+      // http.get('http://www.pudge.wang:3002/api/home/topRatedMovies').then(res => {
+      //   console.log(res)
+      // })
+      const result = await getTopRated()
+      console.log(result)
+      // getTopRated().then(res => {
+      //   console.log(res)
+      // })
     }
   },
 };
