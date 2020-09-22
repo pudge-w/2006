@@ -7,6 +7,8 @@
 <script>
 import MovieListItem from './MovieListItem';
 
+import { getIndexList } from '../../utils/api';
+
 export default {
   data() {
     return {
@@ -20,16 +22,18 @@ export default {
     this.getList();
   },
   methods: {
-    getList() {
-      fetch('http://www.pudge.wang:3002/api/home/movieOnInfoList', {
-        method: "POST"
-      }).then(response => response.json())
-        .then(myJson => {
-          if (myJson.status === 0) {
-            // console.log(myJson);
-            this.movieList = myJson.result.movieList
-          }
-        });
+    async getList() {
+      // fetch('http://www.pudge.wang:3002/api/home/movieOnInfoList', {
+      //   method: "POST"
+      // }).then(response => response.json())
+      //   .then(myJson => {
+      //     if (myJson.status === 0) {
+      //       // console.log(myJson);
+      //       this.movieList = myJson.result.movieList
+      //     }
+      //   });
+      const res = await getIndexList()
+      this.movieList = res.result.movieList
     }
   },
 };

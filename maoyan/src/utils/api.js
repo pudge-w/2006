@@ -1,9 +1,15 @@
+// 用于管理所有的接口信息
+
 import http from './http'
 
-// 首页的最受欢迎接口
+// 首页最受欢迎接口
 export function getTopRated(params) {
-  return http.get('http://www.pudge.wang:3002/api/home/topRatedMovies', params)
+  return http.get('/home/topRatedMovies', params)
 }
 
-// 其他接口
-// export function...
+// 首页的列表接口
+export function getIndexList(params) {
+  return http.post('/home/movieOnInfoList', params)
+}
+
+

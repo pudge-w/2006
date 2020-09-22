@@ -39,14 +39,8 @@ export default {
       //       this.topRatedList = myJson.result;
       //     }
       //   });
-      // http.get('http://www.pudge.wang:3002/api/home/topRatedMovies').then(res => {
-      //   console.log(res)
-      // })
-      const result = await getTopRated()
-      console.log(result)
-      // getTopRated().then(res => {
-      //   console.log(res)
-      // })
+      const res = await getTopRated()
+      this.topRatedList = res.result.result
     }
   },
 };
