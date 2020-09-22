@@ -1,5 +1,6 @@
 <template>
   <header class="my-header">
+    <span class="back" v-if="showBack">&lt;</span>
     <h2>猫眼电影</h2>
     <span class="iconfont icon-caidan"></span>
   </header>
@@ -7,7 +8,7 @@
 
 <script>
 export default {
-  
+  props: ['showBack']
 }
 </script>
 
@@ -25,6 +26,14 @@ export default {
   align-items: center;
   font-size: 18px;
   color: #fff;
+
+  .back {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   h2 {
     font-weight: 400;
   }

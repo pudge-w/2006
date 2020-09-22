@@ -41,6 +41,7 @@ export default {
   justify-content: space-around;
   align-items: center;
   font-size: 15px;
+  background: #fff;
 
   address {
     color: #666;

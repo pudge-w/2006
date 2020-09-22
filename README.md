@@ -345,7 +345,7 @@
 
 #### 移动端适配
   - 使用postcss的postcss-pxtorem，lib-flexible插件
-  - npm i amfe-flexible -S  安装amfe-flexible
+  - npm i amfe-flexible -S  安装amfe-flexible,用来设置根元素字体大小的
   - 在main.js里面引入 import "amfe-flexible"
   - npm i postcss-pxtorem -D  安装postcss-pxtorem
   - 在根目录创建文件 .postcssrc.js
