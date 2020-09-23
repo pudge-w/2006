@@ -1,6 +1,7 @@
 <template>
   <ul class="movie-list">
     <movie-list-item v-for="(item, index) in movieList" :key="index" :item="item"/>
+    <p v-if="movieList.length >= total">人家是有底线的</p>
   </ul>
 </template>
 
@@ -10,20 +11,20 @@ import MovieListItem from './MovieListItem';
 // import { getIndexList } from '../../utils/api';
 
 export default {
-  props: ['movieList'],
+  props: ['movieList', 'total'],
   data() {
     return {
       // movieList: []
       count: 0
     };
   },
-  watch: {
-    movieList() {
-      this.$nextTick(() => {
-        this.$emit('listChange', this.count++)
-      })
-    }
-  },
+  // watch: {
+  //   movieList() {
+  //     this.$nextTick(() => {
+  //       this.$emit('listChange', this.count++)
+  //     })
+  //   }
+  // },
   components: {
     MovieListItem
   },

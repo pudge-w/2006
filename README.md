@@ -376,3 +376,33 @@
     - 父元素要有固定的宽高
     - 所有的子元素都需要一个容器包起来
   - 安装 npm install better-scroll --save
+
+
+#### 路由
+  - 什么是前端路由
+    - 不同的url和内容之间的映射关系
+    - 根据不同的url，返回不同的内容或者页面
+  - 原生路由的实现
+    - hashchange事件
+  - vue是单页面应用（spa， single page web application）
+
+#### vue路由  --  vue-router
+  - 特点
+    - 嵌套的路由/视图表
+    - 模块化的、基于组件的路由配置
+    - 路由参数、查询、通配符
+    - 基于 Vue.js 过渡系统的视图过渡效果
+    - 细粒度的导航控制
+    - 带有自动激活的 CSS class 的链接
+    - HTML5 历史模式或 hash 模式，在 IE9 中自动降级
+    - 自定义的滚动条行为
+
+  - router和route
+    - 我们可以在任何组件内通过 this.$router 访问路由器，也可以通过 this.$route 访问当前路由
+
+
+  - router-link
+    - to  相当于href
+    - active-class  设置链接激活时使用的 CSS 类名,默认值: "router-link-active"
+    - exact     表示精准匹配
+    - exact-active-class   前两个结合,默认值: "router-link-exact-active"

@@ -1,7 +1,7 @@
 import Vue from "vue";
 // 引入app.vue这个根组件
 import App from "./App.vue";
-// import router from "./router";
+import router from "./router";
 // import store from "./store";
 
 // 引入reset重置样式
@@ -17,7 +17,7 @@ import "amfe-flexible";
 Vue.config.productionTip = true;
 
 new Vue({
-  // router: router,
+  router: router,
   // store: store,
   render: h => h(App)
 }).$mount("#app");
