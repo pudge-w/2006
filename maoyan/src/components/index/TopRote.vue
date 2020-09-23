@@ -1,48 +1,44 @@
 <template>
   <div class="top-rote">
     <p class="title">最受好评的电影</p>
-    <ul>
-      <li v-for="item in topRatedList"
-        :key="item.id"
-      >
-        <div class="img-wrap">
-          <img :src="item.img" alt="">
-        </div>
-        <h5>{{ item.title }}</h5>
-      </li>
-    </ul>
+    <div class="ul-wrap">
+      <ul class="ul">
+        <li v-for="item in topRatedList"
+          :key="item.id"
+        >
+          <div class="img-wrap">
+            <img :src="item.img" alt="">
+          </div>
+          <h5>{{ item.title }}</h5>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
 // import http from '../../utils/http'
-import { getTopRated } from '../../utils/api'
+// import { getTopRated } from '../../utils/api'
+// 引入better-scroll
+import BetterScroll from 'better-scroll'
 
 export default {
+  props: ['topRatedList'],
   data() {
-    return {
-      // 最受欢迎的列表
-      topRatedList: []
-    };
+    return {};
   },
-  created() {
-    this.getTopRatedList();
-  },
-  methods: {
-    async getTopRatedList() {
-      // 使用了fetch去请求数据
-      // fetch('http://www.pudge.wang:3002/api/home/topRatedMovies')
-      //   .then(response => response.json())
-      //   .then(myJson => {
-      //     if (myJson.status === 0) {
-      //       // console.log(myJson);
-      //       this.topRatedList = myJson.result;
-      //     }
-      //   });
-      const res = await getTopRated()
-      this.topRatedList = res.result.result
+  watch: {
+    async topRatedList() {
+      await this.$nextTick()
+      let bs = new BetterScroll('.ul-wrap', {
+        // 允许纵向滚动
+        scrollY: false,
+        scrollX: true,
+        click: true
+      })
     }
   },
+  methods: {},
 };
 </script>
 <style lang='scss' scoped>
@@ -58,12 +54,13 @@ export default {
     color: #333;
     margin-bottom: 12px;
   }
-
-  ul {
+  .ul-wrap {
     width: 100%;
     height: 140px;
-    display: flex;
-    overflow: auto;
+    overflow: hidden;
+  }
+  ul {
+    display: inline-flex;
 
     li {
       width: 85px;
