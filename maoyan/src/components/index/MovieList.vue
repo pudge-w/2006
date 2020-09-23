@@ -1,6 +1,6 @@
 <template>
   <ul class="movie-list">
-    <movie-list-item v-for="item in movieList" :key="item.id" :item="item"/>
+    <movie-list-item v-for="(item, index) in movieList" :key="index" :item="item"/>
   </ul>
 </template>
 
@@ -14,7 +14,15 @@ export default {
   data() {
     return {
       // movieList: []
+      count: 0
     };
+  },
+  watch: {
+    movieList() {
+      this.$nextTick(() => {
+        this.$emit('listChange', this.count++)
+      })
+    }
   },
   components: {
     MovieListItem

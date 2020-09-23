@@ -13,3 +13,7 @@ export function getIndexList(params) {
 }
 
 
+// 首页的上拉加载列表的接口
+export function pullUpLoadList(params) {
+  return http.post('/home/moreComingList', params)
+}
