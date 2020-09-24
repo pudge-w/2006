@@ -5,8 +5,8 @@
       <li v-for="(item, index) in tabsList" 
         :key="index" 
         :class="{ active: activeIndex === index }"
-        @click="tabsChange(index)">
-        {{ item }}
+        @click="tabsChange(index, item.url)">
+        {{ item.title }}
         <div class="underLine" v-if="activeIndex === index"></div>
       </li>
     </ul>
@@ -18,13 +18,32 @@
 export default {
   data() {
     return {
-      tabsList: ["热映", "影院", "待映", "经典电影"],
+      // tabsList: ["热映", "影院", "待映", "经典电影"],
+      tabsList: [
+        {
+          title: '热映',
+          url: '/hot'
+        },
+        {
+          title: '影院',
+          url: '/cinema'
+        },
+        {
+          title: '待映',
+          url: '/wait'
+        },
+        {
+          title: '经典电影',
+          url: '/classics'
+        }
+      ],
       activeIndex: 0
     };
   },
   methods: {
-    tabsChange(i) {
+    tabsChange(i, url) {
       this.activeIndex = i;
+      this.$router.push(url)
     }
   }
 };
@@ -35,6 +54,9 @@ export default {
 <style lang='scss' scoped>
 @import "../../assets/style/var.scss";
 .my-tabs {
+  position: fixed;
+  width: 100%;
+  top: 50px;
   height: 44px;
   border-bottom: 1px solid $border-color;
   display: flex;

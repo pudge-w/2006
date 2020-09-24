@@ -9,9 +9,38 @@ Vue.use(VueRouter)
 // 定义路由表
 const routes = [
   {
+    // 重定向
     path: '/',
+    redirect: '/index'
+  },
+  {
+    path: '/index',
     name: 'Home',
-    component: () => import('../views/Home.vue')
+    component: () => import('../views/Home.vue'),
+    children: [
+      {
+        path: '/index',
+        redirect: '/hot'
+      },
+      {
+        path: '/hot',
+        // components: {
+        //   a: () => import('../components/Hot.vue'),
+        //   b: () => import('../components/Cinema.vue')
+        // }
+        component: import('../components/Hot.vue')
+      },
+      {
+        path: '/cinema',
+        component: () => import('../components/Cinema.vue'),
+        // 添加别名
+        alias: '/asdf'
+      },
+      {
+        path: '/wait',
+        component: () => import('../components/Wait.vue')
+      }
+    ]
   },
   {
     path: '/classify/:id/:color',
@@ -24,6 +53,12 @@ const routes = [
   {
     path: '/mine',
     component: () => import('../views/Mine.vue')
+  },
+  {
+    path: '/detail/:id/:num',
+    name: 'detail',
+    component: () => import('../views/Detail.vue'),
+    props: true
   },
   {
     path: '*',

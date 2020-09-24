@@ -6,8 +6,35 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    // 重定向
+    path: '/',
+    redirect: '/index'
+  },
+  {
     path: '/index',
-    component: () => import('../views/Index.vue')
+    component: () => import('../views/Index.vue'),
+    children: [
+      {
+        path: '/index',
+        redirect: '/hot'
+      },
+      {
+        path: '/hot',
+        component: () => import('../components/index/Hot.vue')
+      },
+      {
+        path: '/cinema',
+        component: () => import('../components/index/Cinema.vue')
+      },
+      {
+        path: '/wait',
+        component: () => import('../components/index/Wait.vue')
+      },
+      {
+        path: '/classics',
+        component: () => import('../components/index/Classics.vue')
+      }
+    ]
   },
   {
     path: '/video',
@@ -22,13 +49,21 @@ const routes = [
     component: () => import('../views/Show.vue')
   },
   {
-    path: '/Mine',
+    path: '/mine',
     component: () => import('../views/Mine.vue')
   },
+  {
+    path: '/detail/:id',
+    component: () => import('../views/Detail.vue')
+  },
+  {
+    path: '*',
+    component: () => import('../views/NotFound.vue')
+  }
 ]
 
 const router = new VueRouter({
-  routes
+  routes: routes
 })
 
 export default router

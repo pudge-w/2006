@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link :to="{ path: '/'}" tag="a" replace>首页</router-link> |
+      <router-link :to="{ path: '/index'}" tag="a" replace>首页</router-link> |
       <router-link :to="{ path: '/classify'}" tag="a" replace>详情页</router-link> |
       <router-link :to="{ path: '/cart'}" tag="a" replace>购物车</router-link> |
       <router-link :to="{ path: '/mine'}" tag="a" replace>我的</router-link> |

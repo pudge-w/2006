@@ -406,3 +406,36 @@
     - active-class  设置链接激活时使用的 CSS 类名,默认值: "router-link-active"
     - exact     表示精准匹配
     - exact-active-class   前两个结合,默认值: "router-link-exact-active"
+
+  - router-view
+    - 路由的出口
+
+  - 编程式导航
+    - 用js来做跳转
+    - 有复杂逻辑的时候（除了跳转还要做其他的事情）， 在布局里不方便使用router-link的时候
+    - this.$router.push(url)      跳转到新页面，有跳转记录
+    - this.$router.replace(url)   跳转到新页面，替换当前页面，没有记录，不能后退
+    - this.$router.router.go(n)   前进或者后退几步
+
+  - 命名路由
+    - 给route添加name属性
+    - <router-link to="/detail/456"></router-link>
+    - <router-link :to="{name: 'detail', params: {id: 456}}"></router-link>
+    - this.$router.push('/detail/456')
+    - this.$router.push({name: 'detail', params: {id: 456}})
+
+  - 重定向和别名
+    - 重定向： 当用户访问 /a时，URL 将会被替换成 /b，然后匹配路由为 /b
+    - { path: '/a', redirect: '/b' }
+    - 别名： /a 的别名是 /b，意味着，当用户访问 /b 时，URL 会保持为 /b，但是路由匹配则为 /a，就像用户访问 /a 一样。
+    - { path: '/a', component: A, alias: '/b' }
+
+
+  - vue-router有几种模式
+    - hash        
+      - /#       
+      - 比较难看
+      - 比较好操作
+    - history
+      - 不带#
+    - abstract
