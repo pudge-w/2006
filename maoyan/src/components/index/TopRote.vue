@@ -5,6 +5,7 @@
       <ul class="ul">
         <li v-for="item in topRatedList"
           :key="item.id"
+          @click="toDetail(item.id)"
         >
           <div class="img-wrap">
             <img :src="item.img" alt="">
@@ -38,7 +39,12 @@ export default {
       })
     }
   },
-  methods: {},
+  methods: {
+    toDetail(id) {
+      // this.$router.push('/detail/' + id)
+      this.$router.push({name: 'detail', params: {id: id}})
+    }
+  },
 };
 </script>
 <style lang='scss' scoped>

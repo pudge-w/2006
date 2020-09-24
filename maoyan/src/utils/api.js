@@ -17,3 +17,9 @@ export function getIndexList(params) {
 export function pullUpLoadList(params) {
   return http.post('/home/moreComingList', params)
 }
+
+
+// 影片的详情页接口
+export function getMovieInfo(params) {
+  return http.get('/detail/info', params)
+}
