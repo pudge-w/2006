@@ -439,3 +439,43 @@
     - history
       - 不带#
     - abstract
+
+
+#### 路由守卫
+  - 全局路由守卫
+    ```
+      router.beforeEach((to, from, next) => {
+        if (to.meta.requiresAuth) {
+          if (localStorage.getItem('token')) {
+              如果有token，说明登录过了
+            next()
+          } else {
+              如果没有token，那么跳到登录页
+            next('/login')
+          }
+        }
+        next()
+      })
+    ```
+  - 路由独享守卫
+    ```
+      {
+        path: '/mini-video',
+        component: () => import('../views/MiniVideo.vue'),
+        // meta: { requiresAuth: true }
+        // 路由独享的守卫
+        beforeEnter: (to, from, next) => {
+          if (localStorage.getItem('token')) {
+            next()
+          } else {
+            next('/login')
+          }
+        }
+      },
+    ```
+
+  - 组件内守卫
+    - beforeRouteEnter
+      - 取不到this
+    - beforeRouteUpdate
+    - beforeRouteLeave
