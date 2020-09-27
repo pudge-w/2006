@@ -479,3 +479,22 @@
       - 取不到this
     - beforeRouteUpdate
     - beforeRouteLeave
+
+
+
+#### Vuex
+  - 是一个状态管理模式（全局状态管理工具）
+  - Vue components  ----dispatch---->   actions    ----commit----->  mutations  ------->  state
+  - 由5部分组成
+    - state
+      - 用于存放全局的状态的
+      - mapState   放在computed里面
+    - getters
+      - 相当于vuex里面的计算属性
+      - mapGetters  放在computed里面
+    - mutations
+      - 用于放改变state的同步函数
+      - 有两个参数，第一个参数是state，第二个参数是payload，payload最好是对象
+      - mapMutations   放在methods里面
+    - actions
+    - modules

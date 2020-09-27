@@ -3,6 +3,7 @@
     <!-- {{ count }} -->
     <!-- <button @click="handleClick">add</button> -->
     {{ count }}
+    {{ reverse }}
   </div>
 </template>
 
@@ -16,6 +17,12 @@ export default {
   computed: {
     count() {
       return this.$store.state.count
+    },
+    // reverse() {
+    //   return this.$store.state.msg.split('').reverse().join('')
+    // }
+    reverse() {
+      return this.$store.getters.reverseMsg
     }
   },
   // data() {
