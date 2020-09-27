@@ -13,7 +13,6 @@
     </transition>
     <router-view v-if="!$route.meta.needTransition"></router-view>
 
-
     <!-- <router-view></router-view> -->
     <my-footer />
   </div>

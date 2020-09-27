@@ -1,6 +1,6 @@
 <template>
   <nav class="my-tabs">
-    <address>北京 *</address>
+    <address @click="toCities">{{ city }} *</address>
     <ul>
       <li v-for="(item, index) in tabsList" 
         :key="index" 
@@ -40,10 +40,18 @@ export default {
       activeIndex: 0
     };
   },
+  computed: {
+    city() {
+      return this.$store.state.city.name
+    }
+  },
   methods: {
     tabsChange(i, url) {
       this.activeIndex = i;
       this.$router.push(url)
+    },
+    toCities() {
+      this.$router.push('/cities');
     }
   }
 };

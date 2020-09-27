@@ -23,3 +23,8 @@ export function pullUpLoadList(params) {
 export function getMovieInfo(params) {
   return http.get('/detail/info', params)
 }
+
+// 城市列表接口
+export function getCitiesList(params) {
+  return http.get('/cities/list', params)
+}

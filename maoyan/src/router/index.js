@@ -44,11 +44,13 @@ const routes = [
   },
   {
     path: '/video',
-    component: () => import('../views/Video.vue')
+    component: () => import('../views/Video.vue'),
+    meta: { title: '猫眼视频' }
   },
   {
     path: '/mini-video',
     component: () => import('../views/MiniVideo.vue'),
+    meta: { title: '猫眼小视频' },
     // meta: { requiresAuth: true }
     // 路由独享的守卫
     beforeEnter: (to, from, next) => {
@@ -62,6 +64,7 @@ const routes = [
   {
     path: '/show',
     component: () => import('../views/Show.vue'),
+    meta: { title: '猫眼演出' }
     // meta: { requiresAuth: true }
   },
   {
@@ -72,11 +75,15 @@ const routes = [
     path: '/detail/:id',
     name: 'detail',
     component: () => import('../views/Detail.vue'),
-    meta: { needTransition: true }
+    meta: { needTransition: true, title: '猫眼详情' }
   },
   {
     path: '/login',
     component: () => import('../views/Login.vue')
+  },
+  {
+    path: '/cities',
+    component: () => import('../views/Cities.vue')
   },
   {
     path: '*',
@@ -89,24 +96,26 @@ const router = new VueRouter({
 })
 
 // 全局前置守卫
-// router.beforeEach((to, from, next) => {
-//   // ...
-//   // console.log('to', to)
-//   // console.log('from', from)
-//   // // next('/video')
-//   // next()
-//   // console.log(to)
-//   if (to.meta.requiresAuth) {
-//     if (localStorage.getItem('token')) {
-//       // 如果有token，说明登录过了
-//       next()
-//     } else {
-//       // 如果没有token，那么跳到登录页
-//       next('/login')
-//     }
-//   }
-//   next()
-// })
+router.beforeEach((to, from, next) => {
+  // ...
+  // console.log('to', to)
+  // console.log('from', from)
+  // // next('/video')
+  // next()
+  // console.log(to)
+  if (to.meta.requiresAuth) {
+    if (localStorage.getItem('token')) {
+      // 如果有token，说明登录过了
+      document.title = to.meta.title ? to.meta.title : '猫眼电影'
+      next()
+    } else {
+      // 如果没有token，那么跳到登录页
+      next('/login')
+    }
+  }
+  document.title = to.meta.title ? to.meta.title : '猫眼电影'
+  next()
+})
 
 // // 全局的后置钩子
 // router.afterEach((to, from) => {
