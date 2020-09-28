@@ -1,7 +1,7 @@
 <template>
   <ul class="movie-list">
     <movie-list-item v-for="(item, index) in movieList" :key="index" :item="item"/>
-    <p v-if="movieList.length >= total">人家是有底线的</p>
+    <p v-if="movieList && movieList.length >= total">人家是有底线的</p>
   </ul>
 </template>
 

@@ -33,14 +33,22 @@
 
 <script>
 import { getCitiesList } from '../utils/api';
+
+import { createNamespacedHelpers } from 'vuex'
+
+const { mapState, mapActions } = createNamespacedHelpers('cities')
+
 export default {
   data() {
     return {
       // indexList: ['A', 'B'],
-      list: []
+      // list: []
     };
   },
   computed: {
+    ...mapState({
+      list: state => state.citieslist
+    }),
     indexList() {
       let arr = [];
       for (let i = 1; i < this.list.length; i++) {
@@ -55,9 +63,14 @@ export default {
     }
   },
   mounted() {
-    this.getList();
+    // this.getList();
+    // this.$store.dispatch('cities/getCities')
+    this.getCities();
   },
   methods: {
+    ...mapActions([
+      'getCities'
+    ]),
     async getList() {
       const res = await getCitiesList();
       console.log(res);
