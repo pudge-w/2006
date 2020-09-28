@@ -36,14 +36,16 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 import Swipe from '../components/Index/Swipe'
+// import { getRecommend } from '../utils/api'
+
+import { mapState, mapActions } from 'vuex'
 
 export default {
   data() {
     return {
       active: 0,
-      bannerList: [],
       list: [
         {
           imgUrl: 'https://img.yzcdn.cn/vant/apple-1.jpg',
@@ -62,9 +64,12 @@ export default {
           title: '皮鲁甄选'
         }
       ],
-      reCommendList: []
     };
   },
+  computed: mapState({
+    bannerList: 'bannerList',
+    reCommendList: 'reCommendList'
+  }),
   components: {
     Swipe
   },
@@ -78,24 +83,10 @@ export default {
     this.getRecommendList()
   },
   methods: {
-    getBannerList() {
-      axios.get('http://www.pudge.wang:3001/home/banner')
-      .then(response => {
-        this.bannerList = response.data.result.list
-      })
-      .catch(error => {
-        console.log(error);
-      });
-    },
-    getRecommendList() {
-      axios.post('http://www.pudge.wang:3001/home/recommend', {})
-      .then(response => {
-        this.reCommendList = response.data.result.list
-      })
-      .catch(error => {
-        console.log(error);
-      });
-    }
+    ...mapActions([
+      'getBannerList',
+      'getRecommendList'
+    ])
   }
 };
 </script>
