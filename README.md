@@ -497,4 +497,23 @@
       - 有两个参数，第一个参数是state，第二个参数是payload，payload最好是对象
       - mapMutations   放在methods里面
     - actions
+      - 用于放异步方法
+      - 有两个参数，第一个参数是一个对象，一般只需要从里面结构出commit，第二个参数是payload
+      - mapActions   放在methods里面
     - modules
+      - 用来做vuex的模块化
+      - 如果没有设置命名空间
+        - state   ->     this.$store.state.a.msg
+        - getters  ->    this.$store.getters.msg
+        - mutations  ->  this.$store.commit('msg')
+        - actions  ->  this.$store.dispatch('msg')
+      - 如果有命名空间
+        - state   ->     this.$store.state.a.msg
+        - getters  ->    this.$store.getters['a/msg']
+        - mutations  ->  this.$store.commit('a/msg')
+        - actions  ->  this.$store.dispatch('a/msg')
+
+
+#### 商城项目
+  - vue全家桶
+    - vue core + vue-router  + vuex  + vant-ui  +  axios
