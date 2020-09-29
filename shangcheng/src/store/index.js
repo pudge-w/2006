@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { getBanner, getClassifyList, getRecommend, getDetailInfo } from '../utils/api'
+import { getBanner, getClassifyList, getRecommend, getDetailInfo, getCode, login } from '../utils/api'
+import { Toast  } from 'vant'
 
 Vue.use(Vuex)
 
@@ -53,6 +54,19 @@ export default new Vuex.Store({
         productId: payload.productId
       })
       commit('getDetail', res)
+    },
+    async getCode(context, payload) {
+      const res = await getCode({
+        phone: payload,
+        templateId: '537707'
+      })
+      // console.log(res)
+      Toast(res.msg)
+    },
+    async login(context, payload) {
+      const res = await login(payload)
+      // console.log(res)
+      Toast(res.msg)
     }
   },
   modules: {

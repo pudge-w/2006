@@ -20,6 +20,9 @@
         </div>
       </template>
     </van-swipe> 
+
+
+    <button @click="toOtherDetail">猜你喜欢</button>
   </div>
 </template>
 
@@ -45,12 +48,23 @@ export default {
       productId: this.productId
     })
   },
+  // 动态参数改变时触发
+  beforeRouteUpdate(to) {
+    // console.log(to)
+    this.productId = to.params.id
+    this.$store.dispatch('getDetail', {
+      productId: this.productId
+    })
+  },
   methods: {
     onClickLeft() {
       this.$router.go(-1)
     },
     onChange(index) {
       this.current = index
+    },
+    toOtherDetail() {
+      this.$router.push('/detail/20007')
     }
   },
 }

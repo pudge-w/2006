@@ -28,6 +28,7 @@
       :finished="finished"
       finished-text="没有更多了"
       @load="onLoad"
+      offset="0"
     >
       <van-card
         v-for="(item, index) in reCommendList"
@@ -56,7 +57,7 @@ export default {
       active: 0,
       loading: false,
       finished: false,
-      count: 5,
+      count: 3,
       list: [
         {
           imgUrl: 'https://img.yzcdn.cn/vant/apple-1.jpg',
@@ -86,8 +87,13 @@ export default {
     })
   },
   watch: {
-    reCommendList() {
-      this.loading = false
+    reCommendList(val, oldVal) {
+      // this.loading = false
+      if (val.length - oldVal.length === this.count) {
+        this.loading = false
+      } else {
+        this.finished = true
+      }
     }
   },
   components: {
@@ -111,6 +117,7 @@ export default {
       'getRecommendList'
     ]),
     onLoad() {
+      this.loading = true
       this.getRecommendList({
         page: this.page,
         count: this.count

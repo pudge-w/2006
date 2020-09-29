@@ -19,3 +19,13 @@ export function getClassifyList(data) {
 export function getDetailInfo(data) {
   return http.post('/detail', data)
 }
+
+// 获取短信验证码
+export function getCode(data) {
+  return http.post('/register/getCode', data)
+}
+
+// 登录
+export function login(data) {
+  return http.post('/register', data)
+}

@@ -10,7 +10,7 @@ import './assets/css/style.stylus'
 
 import "amfe-flexible"
 
-import { Tabbar, TabbarItem, Swipe, SwipeItem, Grid, GridItem, NavBar, Image as VanImage, Card, List, Search, Sidebar, SidebarItem   } from 'vant';
+import { Tabbar, TabbarItem, Swipe, SwipeItem, Grid, GridItem, NavBar, Image as VanImage, Card, List, Search, Sidebar, SidebarItem, Field, Button } from 'vant';
 
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
@@ -25,6 +25,8 @@ Vue.use(List);
 Vue.use(Search);
 Vue.use(Sidebar);
 Vue.use(SidebarItem);
+Vue.use(Field);
+Vue.use(Button);
 
 Vue.config.productionTip = false
 
