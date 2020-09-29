@@ -21,7 +21,14 @@
       </van-grid-item>
     </van-grid>
 
-    <div>
+    <div class="menu"></div>
+
+    <van-list
+      v-model="loading"
+      :finished="finished"
+      finished-text="没有更多了"
+      @load="onLoad"
+    >
       <van-card
         v-for="(item, index) in reCommendList"
         :key="index"
@@ -30,8 +37,9 @@
         desc=""
         :title="item.productName"
         :thumb="item.imgUrl"
+        @click="toDetail(item.productId)"
       />
-    </div>
+    </van-list>
   </div>
 </template>
 
@@ -46,6 +54,9 @@ export default {
   data() {
     return {
       active: 0,
+      loading: false,
+      finished: false,
+      count: 5,
       list: [
         {
           imgUrl: 'https://img.yzcdn.cn/vant/apple-1.jpg',
@@ -66,10 +77,19 @@ export default {
       ],
     };
   },
-  computed: mapState({
-    bannerList: 'bannerList',
-    reCommendList: 'reCommendList'
-  }),
+  computed: {
+    ...mapState({
+      bannerList: 'bannerList',
+      reCommendList: 'reCommendList',
+      page: 'page'
+      // loading: 'loading'
+    })
+  },
+  watch: {
+    reCommendList() {
+      this.loading = false
+    }
+  },
   components: {
     Swipe
   },
@@ -80,13 +100,25 @@ export default {
   },
   mounted() {
     this.getBannerList()
-    this.getRecommendList()
+    // this.getRecommendList({
+    //   page: this.page,
+    //   count: this.count
+    // })
   },
   methods: {
     ...mapActions([
       'getBannerList',
       'getRecommendList'
-    ])
+    ]),
+    onLoad() {
+      this.getRecommendList({
+        page: this.page,
+        count: this.count
+      })
+    },
+    toDetail(id) {
+      this.$router.push('/detail/' + id)
+    }
   }
 };
 </script>
@@ -95,4 +127,7 @@ export default {
 .grid-span
   font-size 14px
   margin-top 10px
+
+.menu
+  height 300px
 </style>

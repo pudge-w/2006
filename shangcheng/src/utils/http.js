@@ -22,7 +22,6 @@ instance.interceptors.request.use(function (config) {
   } else if (config.method === 'post') {
     config.data += '&token=' + localStorage.getItem('token')
   }
-  console.log(config)
   return config;
 }, function (error) {
   // 对请求错误做些什么
