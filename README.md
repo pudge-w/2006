@@ -517,3 +517,60 @@
 #### 商城项目
   - vue全家桶
     - vue core + vue-router  + vuex  + vant-ui  +  axios
+
+
+#### git
+  - git是一个目前世界上最先进的分布式的版本控制系统
+  - Linux
+
+  - 配置
+    - git config --global user.name "pudge-w"
+    - git config --global user.email "pudge_wj@163.com"
+    - 让远程仓库知道这次的提交是谁做的
+
+  - 上传本地仓库
+    - git init   初始化本地仓库
+    - git add [文件名] 或者  git add .   或者  git add [文件1] [文件2]  上传到暂存区
+    - git commit -m '注释'   上传到本地仓库 
+    - git status    查看仓库的状态
+    - git diff      查看当前仓库的改动
+    - git log   查看历史版本
+    - git log --pretty=oneline
+    - git reset --hard HEAD^ 回退到上一个版本  
+    - git reset --hard 78455346  回退到指定版本
+    - git reflog   查看版本的操作记录
+
+  - 分支
+    <!-- 不会在master分支上开发，master应该是非常稳定的，仅仅用来发布新版本 -->
+    - git branch   查看分支
+    - git branch dev   创建分支
+    - git checkout dev   或者   git switch dev    切换分支
+    - git checkout -b dev   创建并切换
+    - git merge dev    将dev分支的内容进行合并
+
+  - 关联远程仓库
+    <!-- 生成密钥对 -->
+    - ssh-keygen -t rsa -C "pudge_wj@163.com" 
+      - setting -> ssh and GPG keys -> new ssh
+
+    - 创建项目
+      echo "# product" >> README.md
+      git init
+      git add README.md
+      git commit -m "first commit"
+      git branch -M master
+      git remote add origin git@github.com:pudge-w/product.git
+      git push -u origin master
+
+  - 项目流程
+    - 邀请组员
+      setting -> manage access
+    
+    - 成员
+      git clone '项目地址'
+      git checkout -b '分支名'
+      add -> commit -> push
+
+    - 组长
+      git fetch --all
+      git checkout '分支名'
