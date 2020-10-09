@@ -595,4 +595,30 @@
     tsc --init      生成ts配置文件
     tsc --watch     监听
 
-  
+  vue + ts
+    在ts的项目里面，组件分成三种
+      类组件
+        用类的方式写组件
+        ```
+          import Vue from 'vue';
+          // 需要引入修饰器，将类转换成真正的组件
+          import { Component } from 'vue-property-decorator';
+          @Component({})
+          export default class ClassComponent extends Vue {}
+        ```
+      扩展组件
+        用Vue.extend()
+        ```
+          import Vue from 'vue';
+          export default Vue.extend({})
+        ```
+      函数式组件
+        只用于渲染的组件（ui组件，傻瓜组件）
+        没有自己的状态(props除外)，性能是最好的
+        ```
+          <template functional>
+            <div>
+              <h3>函数式组件</h3>
+            </div>
+          </template>
+        ```
