@@ -574,3 +574,25 @@
     - 组长
       git fetch --all
       git checkout '分支名'
+
+
+#### TypeScript
+  typeScript不是一门新的语言，它是一门用来规范js的一门语言
+  js依旧是一门弱类型语言
+  ts是js的一个超集，广义的js由es，dom，bom，而是es的超集
+  比方说有强类型，面向对象的开发体系
+  ts常用在大型的项目里面，使得代码更加的规范，协作更加友好，维护更加的方便
+
+  特点：
+    增加了静态类型检查，增加了代码的健壮性
+    是编写时报错，js是编译时报错
+    使得重构变得安全与便捷
+    多人协作的时候，提高生产力，降低维护成本
+
+  编译：
+    npm i typescript -g  全局安装ts
+    tsc ./src/app.ts --outFile ./dist/app.js   编译
+    tsc --init      生成ts配置文件
+    tsc --watch     监听
+
+  
