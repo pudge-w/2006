@@ -7,6 +7,7 @@ import store from './store'
 
 import './assets/css/reset.stylus'
 import './assets/css/style.stylus'
+import "./assets/css/a.stylus";
 
 import "amfe-flexible"
 

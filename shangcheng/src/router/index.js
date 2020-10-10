@@ -28,6 +28,10 @@ const routes = [
       },
       {
         path: '/mine',
+        redirect: '/mine/a'
+      },
+      {
+        path: '/mine/a',
         component: () => import('../views/Mine.vue'),
       },
     ]
