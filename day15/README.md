@@ -155,7 +155,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
       ./configure
 
       配置https支持的ssl模块
-      ./configure --prefix=/use/local/nginx --with-http_ssl_module
+      ./configure --prefix=/usr/local/nginx --with-http_ssl_module
     ```
 
   8. 编译安装
